@@ -1,15 +1,21 @@
-#import libraries
-import pandas as pd
-from sklearn.linear_model import LinearRegression
-import numpy as np
-from flask import Flask, request, render_template
 import pip
-
 def install(package):
     if hasattr(pip, 'main'):
         pip.main(['install', package])
     else:
         pip._internal.main(['install', package])
+
+install('numpy')
+install('pandas')
+install('flask')
+install('sklearn')
+
+#import libraries
+import pandas as pd
+from sklearn.linear_model import LinearRegression
+import numpy as np
+from flask import Flask, request, render_template
+
 
 #Initialize the flask App
 app = Flask(__name__)
@@ -54,8 +60,5 @@ def predict():
     return render_template('index.html',locations=locations, prediction_text='The esimated cost is :{} Lakhs'.format(output))
 
 if __name__ == "__main__":
-    install('numpy')
-    install('pandas')
-    install('flask')
-    install('sklearn')
+    
     app.run(debug=True)

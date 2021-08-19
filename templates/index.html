@@ -19,27 +19,25 @@
 
      <!-- Main Input For Receiving Query to our ML -->
     <form action="{{ url_for('predict')}}"method="post">
-      <label for="location">Choose a location:</label>
       <select id="location" name="location">
+        <option value="" disabled selected>Select a Location</option>
         {% for loc in locations %}
         <option value="{{loc}}">{{loc}}</option>
         {%endfor%}
       </select>
       <br>
-      <label for="availability">Choose preference:</label>
       <select id="availability" name="availability">
+        <option value="" disabled selected>Availability Preference</option>
         <option value=1>Ready to move in</option>
         <option value=0>Not ready to move in</option>
       </select>
       <br>
-      <label for="Area Type">Area Type:</label>
       <select id="Area Type" name="Area Type">
+        <option value="" disabled selected>Area Type</option>
         <option value='Carpet  Area'>Carpet  Area</option>
         <option value='Super built-up  Area'>Super built-up  Area</option>
         <option value='Plot  Area'>Plot  Area</option>
       </select>
-      <br>
-      <br>
     	<input type="number" name="size" placeholder="Number of Bedrooms" required="required" />
     	<input type="number" name="Bathrooms" placeholder="Number of Bathrooms" required="required" />
     	<input type="number" name="total area" placeholder="Total Area" required="required" />
